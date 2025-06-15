@@ -1,0 +1,59 @@
+name: Build Validator
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Validate Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          # 배포 환경과 동일한 NodeJS 버전 설정
+          node-version: '22'
+          # npm 캐시 활성화
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React App
+        run: npm run build
+        env:
+          CI: true
+          NODE_ENV: production
+
+      - name: Success Comment
+        if: ${{ success() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.CICD_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '### 빌드 결과: ✅ 성공'
+            })
+
+      - name: Failure Comment
+        if: ${{ failure() }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.CICD_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### 빌드 결과: ❌ 실패\n\n[상세 로그](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})를 확인하세요.`
+            })
