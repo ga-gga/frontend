@@ -1,0 +1,10 @@
+addReviewers: true
+
+addAssignees: author
+
+reviewers:
+  - crud0626
+  - onewonu
+  - p-samename
+
+numberOfReviewers: 0
