@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 build
 *.local
+*.tsbuildinfo
 
 # 개발 환경에서 생성 및 사용되는 React Router 관련 타입 폴더
 .react-router
