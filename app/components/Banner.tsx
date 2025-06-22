@@ -1,3 +1,4 @@
+/** TODO :: components 폴더 생성 위한 것으로, 추후 삭제 */
 const Banner = () => {
   return (
     <div
