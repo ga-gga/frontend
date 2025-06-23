@@ -1,4 +1,4 @@
-# Logs
+# 로그 관련
 logs
 *.log
 npm-debug.log*
@@ -8,11 +8,14 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
+build
 *.local
+*.tsbuildinfo
 
-# Editor directories and files
+# 개발 환경에서 생성 및 사용되는 React Router 관련 타입 폴더
+.react-router
+
+# Editor 관련
 .vscode/*
 !.vscode/extensions.json
 .idea
