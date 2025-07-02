@@ -1,10 +1,9 @@
-import { container } from '../style/section/section.css';
+import { fontStyles } from '../style/font.css';
 
 const home = () => {
   return (
     <>
-      <section className={container}>vanilla-extract test</section>
-      <h1>메인 페이지</h1>
+      <div className={`${fontStyles.display1semibold}`}>바닐라 익스트랙트</div>
     </>
   );
 };
