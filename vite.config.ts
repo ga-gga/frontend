@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [reactRouter(), vanillaExtractPlugin()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './app/*'), // 실제 폴더 경로에 맞게 조정
+      '@': path.resolve(__dirname, './app'), // 실제 폴더 경로에 맞게 조정
     },
   },
 });
