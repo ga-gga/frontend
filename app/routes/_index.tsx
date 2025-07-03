@@ -1,9 +1,9 @@
-import { fontStyles } from '../style/font.css';
+import { fontStyles } from '@/style/font.css';
 
 const home = () => {
   return (
     <>
-      <div className={`${fontStyles.display1semibold}`}>바닐라 익스트랙트</div>
+      <div className={`${fontStyles.body1bold}`}>바닐라 익스트랙트</div>
     </>
   );
 };

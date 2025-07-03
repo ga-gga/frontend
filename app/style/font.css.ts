@@ -121,12 +121,20 @@ const fonts: Record<string, Record<string, Font>> = {
   },
 };
 
-// export용 객체 생성
-export const fontStyles: Record<string, string> = {};
-
-for (const font in fonts) {
-  for (const weight in fonts[font]) {
-    const styleName = `${font}${weight}`;
-    fontStyles[styleName] = style(fonts[font][weight]);
-  }
-}
+export const fontStyles = {
+  display1semibold: style(fonts.display1.semibold),
+  display2semibold: style(fonts.display2.semibold),
+  heading1semibold: style(fonts.heading1.semibold),
+  heading2semibold: style(fonts.heading2.semibold),
+  heading3semibold: style(fonts.heading3.semibold),
+  body1bold: style(fonts.body1.bold),
+  body1medium: style(fonts.body1.medium),
+  body1regular: style(fonts.body1.regular),
+  body2bold: style(fonts.body2.bold),
+  body2medium: style(fonts.body2.medium),
+  body2regular: style(fonts.body2.regular),
+  caption1bold: style(fonts.caption1.bold),
+  caption1regular: style(fonts.caption1.regular),
+  caption2bold: style(fonts.caption2.bold),
+  caption2regular: style(fonts.caption2.regular),
+};

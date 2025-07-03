@@ -6,6 +6,11 @@
     "skipLibCheck": true,
     "rootDirs": [".", "./.react-router/types"],
 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["app/*"]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "moduleDetection": "auto",
