@@ -17,7 +17,6 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  console.dir(import.meta);
   return (
     <html lang='ko'>
       <head>
