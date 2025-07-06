@@ -17,6 +17,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  console.dir(import.meta);
   return (
     <html lang='ko'>
       <head>
@@ -24,6 +25,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
         <Links />
+        {/* vite-plugin-checker를 통해 감지되는 에러를 UI에 표시되도록 수동 삽입 */}
+        {import.meta.env.DEV && (
+          <>
+            <script type='module' src='/@vite/client'></script>
+            <script type='module' src='/main.js'></script>
+            <script type='module' src='/@vite-plugin-checker-runtime-entry'></script>
+          </>
+        )}
       </head>
       <body>
         {children}
