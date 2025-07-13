@@ -1,9 +1,12 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { useEffect, useState } from 'react';
+import { initMSW } from '../mocks';
 
 import type { Route } from './+types/root';
 import './style/global.css';
 import './app.css';
+
+initMSW();
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -48,19 +51,16 @@ export default function App() {
   const [data, setData] = useState<unknown>(null);
 
   useEffect(() => {
-    async function init() {
-      if (import.meta.env.DEV) {
-        const { worker } = await import('../mocks/browser');
-        return worker.start();
-      }
+    function initApp() {
+      return initMSW();
     }
 
     async function getData() {
-      const response = fetch('https://api.example.com/user').then((res) => res.json());
+      const response = fetch(`${import.meta.env.VITE_API_ENDPOINT}/user`).then((res) => res.json());
       setData(response);
     }
 
-    init().finally(() => {
+    initApp().finally(() => {
       getData();
     });
   }, []);
