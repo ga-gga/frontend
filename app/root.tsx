@@ -1,8 +1,10 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { useEffect, useState } from 'react';
 
 import type { Route } from './+types/root';
 import './style/global.css';
 import './app.css';
+
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -43,6 +45,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const [data, setData] = useState<unknown>(null);
+
+  useEffect(() => {
+    async function init() {
+      if (import.meta.env.DEV) {
+        const { worker } = await import('../mocks/browser');
+        return worker.start();
+      }
+    }
+
+    async function getData() {
+      const response = fetch('https://api.example.com/user').then((res) => res.json());
+      setData(response);
+    }
+
+    init().finally(() => {
+      getData();
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return <Outlet />;
 }
 
