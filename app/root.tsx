@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import { useEffect, useState } from 'react';
 import { initMSW } from '../mocks';
 
 import type { Route } from './+types/root';
@@ -48,26 +48,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [data, setData] = useState<unknown>(null);
-
   useEffect(() => {
     function initApp() {
       return initMSW();
     }
 
-    async function getData() {
-      const response = fetch(`${import.meta.env.VITE_API_ENDPOINT}/user`).then((res) => res.json());
-      setData(response);
-    }
-
-    initApp().finally(() => {
-      getData();
-    });
+    initApp();
   }, []);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return <Outlet />;
 }
