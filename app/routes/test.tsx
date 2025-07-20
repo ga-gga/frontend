@@ -7,7 +7,7 @@ interface TestObject {
 }
 
 export async function loader() {
-  const data: TestObject = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/user`).then((res) => res.json());
+  const data: TestObject = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/api/main`).then((res) => res.json());
   return data;
 }
 

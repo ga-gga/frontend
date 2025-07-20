@@ -1,8 +1,8 @@
 import type { MainResponse } from '@/types';
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, passthrough } from 'msw';
 
 export const handlers = [
-  http.get(`${import.meta.env.VITE_API_ENDPOINT}/main`, () => {
+  http.get(`${import.meta.env.VITE_API_ENDPOINT}/api/main`, () => {
     return HttpResponse.json<MainResponse>({
       banners: [
         {
@@ -48,5 +48,8 @@ export const handlers = [
         },
       ],
     });
+  }),
+  http.all('*', () => {
+    return passthrough();
   }),
 ];
