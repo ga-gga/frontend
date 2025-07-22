@@ -1,8 +1,14 @@
+import { useEffect } from 'react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { initMSWClient, initMSWServer } from './mocks';
 
 import type { Route } from './+types/root';
 import './style/global.css';
 import './app.css';
+import LintOverlay from './components/LintOverlay';
+
+initMSWServer();
+
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -24,14 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
         <Links />
-        {/* vite-plugin-checker를 통해 감지되는 에러를 UI에 표시되도록 수동 삽입 */}
-        {import.meta.env.DEV && (
-          <>
-            <script type='module' src='/@vite/client'></script>
-            <script type='module' src='/main.js'></script>
-            <script type='module' src='/@vite-plugin-checker-runtime-entry'></script>
-          </>
-        )}
+        {import.meta.env.DEV && <LintOverlay />}
       </head>
       <body>
         {children}
@@ -43,6 +42,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useEffect(() => {
+    function initApp() {
+      return initMSWClient();
+    }
+
+    initApp();
+  }, []);
+
   return <Outlet />;
 }
 
