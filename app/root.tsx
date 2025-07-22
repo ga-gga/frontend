@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import { initMSW } from './mocks';
+import { initMSWClient, initMSWServer } from './mocks';
 
 import type { Route } from './+types/root';
 import './style/global.css';
 import './app.css';
 import LintOverlay from './components/LintOverlay';
 
-initMSW();
+initMSWServer();
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   useEffect(() => {
     function initApp() {
-      return initMSW();
+      return initMSWClient();
     }
 
     initApp();

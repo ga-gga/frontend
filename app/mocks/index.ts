@@ -1,12 +1,13 @@
-export async function initMSW() {
-  if (!import.meta.env.DEV) return;
+export async function initMSWClient() {
+  if (import.meta.env.DEV && window) {
+    const { worker } = await import('./browser');
+    return worker.start();
+  }
+}
 
-  if (typeof window === 'undefined') {
+export async function initMSWServer() {
+  if (import.meta.env.DEV && typeof window === 'undefined') {
     const { server } = await import('./node');
     server.listen();
-    return;
   }
-
-  const { worker } = await import('./browser');
-  return worker.start();
 }
