@@ -14,3 +14,8 @@ globalStyle('*', {
   margin: 0,
   padding: 0,
 });
+
+globalStyle('body', {
+  margin: '0 auto',
+  maxWidth: '1920px',
+});

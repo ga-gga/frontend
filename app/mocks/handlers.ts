@@ -7,8 +7,29 @@ export const handlers = [
       banners: [
         {
           id: '1',
-          title: 'Welcome to Our Service',
-          description: 'We provide the best service for you.',
+          title: '핫플 말고 노플 모음.zip',
+          description: '멀리 떠나지 않아도 괜찮아요. 사람 적고 조용한 도심 속 휴식 공간을 소개합니다.',
+          imageUrl: 'https://picsum.photos/1600/900',
+          icon: 'https://picsum.photos/200',
+        },
+        {
+          id: '1',
+          title: '핫플 말고 노플 모음.zip',
+          description: '멀리 떠나지 않아도 괜찮아요. 사람 적고 조용한 도심 속 휴식 공간을 소개합니다.',
+          imageUrl: 'https://picsum.photos/1600/900',
+          icon: 'https://picsum.photos/200',
+        },
+        {
+          id: '1',
+          title: '핫플 말고 노플 모음.zip',
+          description: '멀리 떠나지 않아도 괜찮아요. 사람 적고 조용한 도심 속 휴식 공간을 소개합니다.',
+          imageUrl: 'https://picsum.photos/1600/900',
+          icon: 'https://picsum.photos/200',
+        },
+        {
+          id: '1',
+          title: '핫플 말고 노플 모음.zip',
+          description: '멀리 떠나지 않아도 괜찮아요. 사람 적고 조용한 도심 속 휴식 공간을 소개합니다.',
           imageUrl: 'https://picsum.photos/1600/900',
           icon: 'https://picsum.photos/200',
         },
