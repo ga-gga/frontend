@@ -10,7 +10,7 @@ export const icon = style({
   padding: '8px 20px',
   borderRadius: '100px',
   border: 'none',
-  backgroundColor: backgroundColor.surface.subtle,
+  backgroundColor: backgroundColor.elevated.button,
   color: textColor.elevatedPrimary,
   cursor: 'pointer',
 });

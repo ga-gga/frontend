@@ -9,13 +9,11 @@ globalFontFace(pretendard, {
   fontStyle: 'normal',
 });
 
-// 글로벌 스타일
-globalStyle('*', {
-  margin: 0,
-  padding: 0,
-});
-
 globalStyle('body', {
   margin: '0 auto',
   maxWidth: '1920px',
+});
+
+globalStyle('section', {
+  marginTop: '88px',
 });

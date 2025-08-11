@@ -7,6 +7,7 @@ export const header = style({
   padding: '20px 80px',
   textAlign: 'left',
   fontWeight: 'bold',
+  zIndex: 1000,
 });
 
 globalStyle(`${header} a[href]`, {

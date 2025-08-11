@@ -1,6 +1,6 @@
 export const backgroundColor = {
   surface: {
-    subtle: '#272A2F',
+    subtle: '#F5F7F9',
     card: '#272A2F',
     cardHover: '#33373D',
     cardPressed: '#4B4F58',
@@ -16,7 +16,7 @@ export const backgroundColor = {
   elevated: {
     modal: '#272A2F',
     popup: '#272A2F',
-    button: '#4B4F58',
+    button: '#35393F',
     nonmodal: '#E5E7EB',
     bottomsheet: '#33373D',
   },
