@@ -2,7 +2,7 @@ import { fontStyles } from '@/style/font.css';
 import { MainResponse } from '@/types';
 import { Button } from './Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { mainLandingList, mainLandingListContainer } from '@/style/component/mainLandingList.css';
+import * as styles from '@/style/component/mainLandingList.css';
 
 type MainLandingListProps = {
   data: MainResponse['banners'];
@@ -15,7 +15,7 @@ export const MainLandingList = ({
   return (
     <Swiper
       style={additionalStyles}
-      className={mainLandingListContainer}
+      className={styles.mainLandingListContainer}
       slidesPerView={4}
       spaceBetween={20}
       breakpoints={{
@@ -35,7 +35,7 @@ export const MainLandingList = ({
     >
       {data.map((banner, idx) => (
         <SwiperSlide>
-          <div className={mainLandingList} style={{ backgroundImage: `url(${banner.imageUrl})` }} key={idx}>
+          <div className={styles.mainLandingList} style={{ backgroundImage: `url(${banner.imageUrl})` }} key={idx}>
             <div>
               <p className={fontStyles.display2semibold}>{banner.title}</p>
               <p style={{ marginTop: '12px' }} className={fontStyles.body1regular}>
