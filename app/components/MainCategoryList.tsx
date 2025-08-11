@@ -7,15 +7,15 @@ import {
   districtInfoItemImage,
   districtInfoList,
 } from '@/style/component/districtInfoList.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import { DistrictInfoLabel } from './DistrictInfoLabel';
 import {
   mainCategoryList,
   mainCategoryListContainer,
   mainCategoryListItem,
   mainCategoryListItemImage,
-} from '@/style/component/MainCategoryList.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper/modules';
-import { DistrictInfoLabel } from './districtInfoLabel';
+} from '@/style/component/mainCategoryList.css';
 
 type MainCategoryListProps = {
   categoryData: MainResponse['categories'];

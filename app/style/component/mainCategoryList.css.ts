@@ -39,11 +39,3 @@ export const mainCategoryListItemImage = style({
     },
   },
 });
-
-// export const districtInfoLabel = style({
-//   selectors: {
-//     [`${mainCategoryListItem} > div >  &`]: {
-//       position: 'absolute',
-//     },
-//   },
-// });

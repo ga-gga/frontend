@@ -1,8 +1,8 @@
-import { mainLandingList, mainLandingListContainer } from '@/style/component/MainLandingList.css';
 import { fontStyles } from '@/style/font.css';
 import { MainResponse } from '@/types';
 import { Button } from './Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { mainLandingList, mainLandingListContainer } from '@/style/component/mainLandingList.css';
 
 type MainLandingListProps = {
   data: MainResponse['banners'];
