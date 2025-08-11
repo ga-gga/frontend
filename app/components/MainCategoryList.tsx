@@ -15,7 +15,7 @@ import {
   mainCategoryListContainer,
   mainCategoryListItem,
   mainCategoryListItemImage,
-} from '@/style/component/mainCategoryList.css';
+} from '@/style/component/mainCategoryListStyle.css';
 
 type MainCategoryListProps = {
   categoryData: MainResponse['categories'];
