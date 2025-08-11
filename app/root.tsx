@@ -5,6 +5,9 @@ import { initMSWClient, initMSWServer } from './mocks';
 import type { Route } from './+types/root';
 import './style/global.css';
 import './app.css';
+import './style/reset.css';
+import 'swiper/css';
+
 import LintOverlay from './components/LintOverlay';
 
 initMSWServer();

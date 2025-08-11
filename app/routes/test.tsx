@@ -1,4 +1,4 @@
-import type { Route } from './+types/test';
+import { Route } from './+types/test';
 
 interface TestObject {
   id: string;
@@ -12,6 +12,7 @@ export async function loader() {
 }
 
 const DetailPage = ({ loaderData }: Route.ComponentProps) => {
+  console.log(loaderData);
   return (
     <div>
       <p>ID : {loaderData.id}</p>
