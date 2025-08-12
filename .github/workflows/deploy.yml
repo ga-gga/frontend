@@ -54,6 +54,7 @@ jobs:
           mkdir -p deploy-package 
           cp -r build/* deploy-package/
           cp appspec.yml deploy-package/
+          cp .env deploy-package/
           cp -r scripts deploy-package/
           cd deploy-package
           zip -r ../deployment-package.zip .
