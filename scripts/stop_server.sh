@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "Stopping nginx server..."
+echo "Stopping React SSR server..."
+sudo pkill -f "npm.*start" || true
 
+echo "Stopping nginx server..."
 sudo systemctl stop nginx || true
 
-echo "Nginx stopped successfully"
+echo "✅ All services stopped successfully"

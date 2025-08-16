@@ -1,15 +1,23 @@
 #!/bin/bash
 
-echo "Setting up file permissions..."
+echo "Setting up application permissions..."
 
-sudo chown -R nginx:nginx /var/www/html
-sudo find /var/www/html -type d -exec chmod 755 {} \;
-sudo find /var/www/html -type f -exec chmod 644 {} \;
+sudo chown -R ec2-user:ec2-user /opt/gagga-front
+sudo find /opt/gagga-front -type d -exec chmod 755 {} \;
+sudo find /opt/gagga-front -type f -exec chmod 644 {} \;
 
-# SELinux가 활성화된 경우 컨텍스트 설정
-if command -v getenforce &> /dev/null && [[ $(getenforce) != "Disabled" ]]; then
-    sudo setsebool -P httpd_can_network_connect 1
-    sudo restorecon -R /var/www/html
+if [ -f /opt/gagga-front/.env ]; then
+    sudo chmod 600 /opt/gagga-front/.env
+    echo "✅ .env file permissions set"
 fi
 
-echo "File permissions configured successfully"
+sudo nginx -t
+
+if [ $? -eq 0 ]; then
+    echo "✅ Nginx configuration is valid"
+else
+    echo "❌ Nginx configuration has errors"
+    exit 1
+fi
+
+echo "✅ Dependencies and configuration setup completed"
