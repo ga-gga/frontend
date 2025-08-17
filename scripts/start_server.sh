@@ -2,10 +2,10 @@
 
 echo "Starting application services..."
 
-cd /opt/myapp
+cd /opt/gagga-front
 
 if [ ! -f "package.json" ]; then
-    echo "❌ Error: package.json not found in /opt/myapp"
+    echo "❌ Error: package.json not found in /opt/gagga-front"
     exit 1
 fi
 

@@ -2,17 +2,17 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/myapp
+    destination: /opt/gagga-front
     overwrite: yes
 
 permissions:
-  - object: /opt/myapp
+  - object: /opt/gagga-front
     pattern: '**'
     owner: ec2-user
     group: ec2-user
     mode: 755
 
-  - object: /opt/myapp/.env
+  - object: /opt/gagga-front/.env
     owner: ec2-user
     group: ec2-user
     mode: 600
