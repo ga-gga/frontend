@@ -16,7 +16,7 @@ else
 fi
 
 echo "Installing dependencies..."
-sudo -u ec2-user npm ci
+sudo -u ec2-user -i bash -c 'cd /opt/gagga-front && npm ci'
 
 echo "Starting React server..."
 sudo -u ec2-user nohup npm start > /var/log/react-ssr.log 2>&1 &
