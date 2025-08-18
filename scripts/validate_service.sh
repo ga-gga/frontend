@@ -30,7 +30,7 @@ else
 fi
 
 echo "Checking external access (nginx → react)..."
-HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/ 2>/dev/null || echo "000")
+HTTP_STATUS=$(curl -s -L -o /dev/null -w "%{http_code}" http://localhost/ 2>/dev/null || echo "000")
 
 if [ $HTTP_STATUS -eq 200 ]; then
     echo "✅ External HTTP access working (Status: $HTTP_STATUS)"
