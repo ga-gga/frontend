@@ -19,7 +19,7 @@ echo "Installing dependencies..."
 sudo -u ec2-user -i bash -c 'cd /opt/gagga-front && npm ci'
 
 echo "Starting React server..."
-sudo -u ec2-user -i bash -c 'cd /opt/gagga-front && nohup npm start > ~/react-ssr.log 2>&1 &'
+sudo -u ec2-user -i bash -c 'cd /opt/gagga-front && nohup npm start > /var/log/react-ssr.log 2>&1 < /dev/null &'
 
 echo $! | sudo tee /var/run/react-app.pid
 
